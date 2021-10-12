@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-l', '--list', type=int, nargs='+',
-    help="escanei todos os valores em uma dada lista. Informe cada elemento da lista separados por espaço após a flag")
+    help="escaneia todos os ports em uma dada lista. Informe cada elemento da lista separados por espaço após a flag")
     group.add_argument('-r', '--range', type=int, nargs='+', action=required_length(),
     help="escaneia todos os ports entre dois valores dados. Informe os dois valores separados por espaço após a flag")
    
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     if args.range:
         open_ports = check_port_range(args.range[0], args.range[1])
     else:
-        print('use "-h" para informações de como rodar o script. "-r" ou "-l" deve ser utilizado')
+        print('use "-h" para informações de como rodar o script')
 
     if args.list or args.range:
         if (not open_ports):
