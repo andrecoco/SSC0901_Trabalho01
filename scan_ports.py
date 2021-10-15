@@ -16,9 +16,8 @@ def _check_port(port, IP):
         return True
     else:
         return False
-    
 
-def check_port_range(begin, end, IP = "0.0.0.0"):
+def check_port_range(begin, end, IP):
     '''
     Testa se as portas entre begin e end (inclusas) estão abertas no IP alvo.
 
@@ -31,7 +30,7 @@ def check_port_range(begin, end, IP = "0.0.0.0"):
     
     return result
 
-def check_port_list(ports, IP = "0.0.0.0"):
+def check_port_list(ports, IP):
     '''
     Testa se as portas na lista passada por argumento estão abertas no IP alvo.
 
@@ -83,8 +82,8 @@ if __name__ == "__main__":
 
     if args.list:
         open_ports = check_port_list(args.list, args.ip)
-    if args.range:
-        open_ports = check_port_range(args.range[0], args.range[1])
+    elif args.range:
+        open_ports = check_port_range(args.range[0], args.range[1], args.ip)
     else:
         print('use "-h" para informações de como rodar o script')
 
