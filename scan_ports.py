@@ -76,6 +76,7 @@ if __name__ == "__main__":
         args = parser.parse_args()
     except argparse.ArgumentTypeError as err:
         print(err)
+        exit()
 
 
     open_ports = []
@@ -91,6 +92,7 @@ if __name__ == "__main__":
         if (not open_ports):
             print("Nenhuma porta está aberta!")
         else:
+            print("SERVIÇO          PROTOCOLO/PORTA")
             for open_port in open_ports:
                 print(services.get(open_port,
                 "{port} - Serviço não encontrado para esse port em /etc/services".format(port=open_port)))

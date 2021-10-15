@@ -7,7 +7,7 @@ class Service:
         self.application_protocol = application_protocol
 
     def __str__(self) -> str:
-        return self.application_protocol + " " + self.transport_protocol + "/" + self.port
+        return self.application_protocol + "                  " + self.transport_protocol + "/" + self.port
 
 def read_services():
     '''
@@ -37,6 +37,8 @@ def read_services():
     # Transforma as strings divididas em objetos da classe Service
     services = {}
     for service_string in service_strings:
+        if('udp' in service_string[1]):
+            continue
         application_protocol = service_string[0]
         port, transport_protocol = service_string[1].split('/')
         
