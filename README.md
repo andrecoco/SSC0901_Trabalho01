@@ -42,3 +42,36 @@ python3 scan_ports.py -ip IP_ALVO -l porta1 porta2 porta3...
 Como mostrado acima, essa flag vale tanto para o modo List quanto o modo Range.
 
 ## Exemplos
+### Exemplo na VM do metasploitable
+Comando:
+```python3 scan_ports.py -r 10 50```
+
+Saída:
+```  
+SERVIÇO       PROTOCOLO/PORTA
+ftp               tcp/21
+ssh               tcp/22
+telnet            tcp/23
+smtp              tcp/25
+```
+
+### Exemplo no Ubuntu 18.04 rodando no WLS2
+Comando:
+```python3 scan_ports.py -l 22 80 433```
+
+Saída:
+```  
+Nenhuma porta está aberta!
+```
+
+Após a execução do comando iniciei o serviço de ssh.
+```sudo service start ssh```
+
+Rodando novamente:
+```python3 scan_ports.py -l 22 80 433```
+
+Saída:
+```  
+SERVIÇO       PROTOCOLO/PORTA
+ssh               tcp/22
+```
