@@ -7,7 +7,7 @@ class Service:
         self.application_protocol = application_protocol
 
     def __str__(self) -> str:
-        return self.application_protocol + "                  " + self.transport_protocol + "/" + self.port
+        return self.application_protocol + (21 - len(self.application_protocol))*" " + self.transport_protocol + "/" + self.port
 
 def read_services():
     '''
